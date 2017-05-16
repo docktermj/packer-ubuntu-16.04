@@ -109,11 +109,20 @@
 	}, {
 		"type": "shell",
 		"execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
-		"script": "scripts/setup.sh"
-	}, {
-		"type": "shell",
-		"execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
-		"script": "scripts/cleanup.sh"
+		"override": {
+			"virtualbox-iso": {
+				"scripts": [
+					"scripts/base.sh",
+					"scripts/cleanup.sh"
+				]
+			},
+			"vmware-iso": {
+				"scripts": [
+					"scripts/base.sh",
+					"scripts/cleanup.sh"
+				]
+			}
+		}
 	}],
 	"post-processors": [{
 		"type": "vagrant",
