@@ -1,8 +1,9 @@
-apt-get update
-apt-get -y upgrade
-apt-get -y install linux-headers-$(uname -r)
+#!/bin/bash -eux
 
-sed -i -e '/Defaults\s\+env_reset/a Defaults\texempt_group=sudo' /etc/sudoers
-sed -i -e 's/%sudo  ALL=(ALL:ALL) ALL/%sudo  ALL=NOPASSWD:ALL/g' /etc/sudoers
+# Add vagrant user to sudoers.
+echo "vagrant        ALL=(ALL)       NOPASSWD: ALL" >> /etc/sudoers
+sed -i "s/^.*requiretty/#Defaults requiretty/" /etc/sudoers
 
-echo "UseDNS no" >> /etc/ssh/sshd_config
+# Disable daily apt unattended updates.
+echo 'APT::Periodic::Enable "0";' >> /etc/apt/apt.conf.d/10periodic
+

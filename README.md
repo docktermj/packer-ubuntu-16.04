@@ -1,18 +1,18 @@
 # packer-ubuntu-16.04
 
-This repository builds machine images using
-[Packer](https://www.packer.io/)
-with a Ubuntu 16.04.2 ISO image.
+This repository is an example of how to build machine images using [Packer](https://www.packer.io/).
 
-The virtual machine that can be produced are: VMware and VirtualBox.
+In this example, a
+Ubuntu 16.04.2 ISO image
+is used to create machine images for VMware and VirtualBox.
 
 ## Build dependencies
 
-See [build dependencies](docs/build-dependencies.md).
+See [build dependencies](https://github.com/docktermj/KnowledgeBase/blob/master/build-dependencies/packer.md).
 
 ## Build
 
-Build all versions
+### Build all versions
 
 ```console
 packer build template.json
@@ -40,8 +40,8 @@ packer build -only=virtualbox-iso template.json
       1. Choose `packer-ubuntu-16.04-nnnnnnnnnn.vmx`
 1. Optional: Change networking
    1. Navigate to VMware Workstation > My Computer > packer-ubuntu-16.04-nnnnnnnnnn
-   1. Right click and choose "Settings"
-   1. Network Adapter: :radio_button: Bridged: Connected directly to the physical network
+   1. Right click on "packer-ubuntu-16.04-nnnnnnnnnn" and choose "Settings"
+   1. Choose "Network Adapter" > "Network Connection" > :radio_button: Bridged: Connected directly to the physical network
    1. Click "Save"
 1. Run image
    1. Choose VMware Workstation > My Computer > packer-ubuntu-16.04-nnnnnnnnnn
@@ -132,23 +132,6 @@ To remove Vagrant image, on host machine:
 vagrant box remove packer-ubuntu-16.04-virtualbox
 ```
 
-
-## Testing
-
->>> TODO:
-
-VMware Fusion
-
-```console
-vagrant up vmware --provider=vmware_fusion
-```
-
-VirtualBox
-
-```console
-vagrant up virtualbox --provider=virtualbox
-```
-
 ## References
-
-1. [Bibliography](docs/bibliography.md)
+1. [Build dependencies](https://github.com/docktermj/KnowledgeBase/blob/master/build-dependencies/packer.md).
+1. [Bibliography](https://github.com/docktermj/KnowledgeBase/blob/master/bibliography/packer.md)
