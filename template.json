@@ -82,7 +82,6 @@
 		"boot_wait": "10s",
 		"disk_size": 81920,
 		"guest_os_type": "ubuntu-64",
-		"headless": true,
 		"http_directory": "http",
 		"iso_checksum": "737ae7041212c628de5751d15c3016058b0e833fdc32e7420209b76ca3d0a535",
 		"iso_checksum_type": "sha256",
@@ -113,12 +112,16 @@
 			"virtualbox-iso": {
 				"scripts": [
 					"scripts/base.sh",
+					"scripts/vagrant.sh",
+					"scripts/virtualbox.sh",
 					"scripts/cleanup.sh"
 				]
 			},
 			"vmware-iso": {
 				"scripts": [
 					"scripts/base.sh",
+					"scripts/vagrant.sh",
+					"scripts/vmware.sh",
 					"scripts/cleanup.sh"
 				]
 			}
