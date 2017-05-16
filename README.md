@@ -4,7 +4,7 @@ This repository builds machine images using
 [Packer](https://www.packer.io/)
 with a Ubuntu 16.04.2 ISO image.
 
-The virtual machine that can be produced are: VMware, Vagrant, and VirtualBox.
+The virtual machine that can be produced are: VMware and VirtualBox.
 
 ## Build dependencies
 

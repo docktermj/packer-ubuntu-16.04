@@ -33,6 +33,7 @@
 			"boot_wait": "10s",
 			"disk_size": 40960,
 			"guest_os_type": "Ubuntu_64",
+			"headless": "true",
 			"http_directory": "http",
 			"iso_checksum": "f529548fa7468f2d8413b8427d8e383b830df5f6",
 			"iso_checksum_type": "sha1",
@@ -81,17 +82,18 @@
 			],
 			"boot_wait": "10s",
 			"disk_size": 40960,
-			"guest_os_type": "linux",
+                        "guest_os_type": "ubuntu-64",
+			"headless": "true",
 			"http_directory": "http",
 			"iso_checksum": "f529548fa7468f2d8413b8427d8e383b830df5f6",
 			"iso_checksum_type": "sha1",
 			"iso_url": "http://releases.ubuntu.com/xenial/ubuntu-16.04.2-server-amd64.iso",
 			"output_directory": "output-vmware-iso-{{user `build_timestamp`}}",
+                        "shutdown_command": "echo 'vagrant'|sudo -S shutdown -P now",
 			"ssh_username": "vagrant",
 			"ssh_password": "vagrant",
 			"ssh_port": 22,
 			"ssh_wait_timeout": "10000s",
-			"shutdown_command": "echo 'shutdown -P now' > /tmp/shutdown.sh; echo 'vagrant'|sudo -S sh '/tmp/shutdown.sh'",
 			"tools_upload_flavor": "linux",
 			"vm_name": "packer-ubuntu-16.04-{{user `build_timestamp`}}",
 			"vmdk_name": "packer-ubuntu-16.04-{{user `build_timestamp`}}",
@@ -109,13 +111,14 @@
 		},
 		{
 			"type": "shell",
-			"execute_command": "echo 'vagrant'|sudo -S sh '{{.Path}}'",
+                        "execute_command": "echo 'vagrant' | {{.Vars}} sudo -S -E bash '{{.Path}}'",
 			"override": {
 				"virtualbox-iso": {
 					"scripts": [
 						"scripts/base.sh",
 						"scripts/vagrant.sh",
 						"scripts/virtualbox.sh",
+						"scripts/ssh.sh",
 						"scripts/cleanup.sh",
 						"scripts/zerodisk.sh"
 					]
@@ -125,6 +128,7 @@
 						"scripts/base.sh",
 						"scripts/vagrant.sh",
 						"scripts/vmware.sh",
+						"scripts/ssh.sh",
 						"scripts/cleanup.sh",
 						"scripts/zerodisk.sh"
 					]
