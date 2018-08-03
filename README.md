@@ -48,17 +48,17 @@ make virtualbox-iso
 ## Run on VMware Workstation
 
 1. Choose VMX file
-   1. VMware Workstation > File > Open...
-      1. Navigate to `.../packer-ubuntu-16.04/output-vmware-iso-nnnnnnnnnn/`
-      1. Choose `packer-ubuntu-16.04-nnnnnnnnnn.vmx`
+    1. VMware Workstation > File > Open...
+        1. Navigate to `.../packer-ubuntu-16.04/output-vmware-iso-nnnnnnnnnn/`
+        1. Choose `packer-ubuntu-16.04-nnnnnnnnnn.vmx`
 1. Optional: Change networking
-   1. Navigate to VMware Workstation > My Computer > packer-ubuntu-16.04-nnnnnnnnnn
-   1. Right click on "packer-ubuntu-16.04-nnnnnnnnnn" and choose "Settings"
-   1. Choose "Network Adapter" > "Network Connection" > :radio_button: Bridged: Connected directly to the physical network
-   1. Click "Save"
+    1. Navigate to VMware Workstation > My Computer > packer-ubuntu-16.04-nnnnnnnnnn
+    1. Right click on "packer-ubuntu-16.04-nnnnnnnnnn" and choose "Settings"
+    1. Choose "Network Adapter" > "Network Connection" > :radio_button: Bridged: Connected directly to the physical network
+    1. Click "Save"
 1. Run image
-   1. Choose VMware Workstation > My Computer > packer-ubuntu-16.04-nnnnnnnnnn
-   1. Click "Start up this guest operating system"
+    1. Choose VMware Workstation > My Computer > packer-ubuntu-16.04-nnnnnnnnnn
+    1. Click "Start up this guest operating system"
 1. Username: vagrant  Password: vagrant
 
 ## Run on Vagrant / VirtualBox
@@ -95,7 +95,7 @@ vagrant init packer-ubuntu-16.04-virtualbox
 #### Enable remote login
 
 Modify Vagrantfile to allow remote login by
-uncommenting `config.vm.network` in `${PACKER_UBUNTU_1604}/Vagrantfile`. 
+uncommenting `config.vm.network` in `${PACKER_UBUNTU_1604}/Vagrantfile`.
 Example:
 
 ```console
@@ -136,7 +136,6 @@ ssh vagrant@nn.nn.nn.nn
 
 Password: vagrant
 
-
 ### Remove image from Vagrant library
 
 To remove Vagrant image, on host machine:
@@ -146,5 +145,6 @@ vagrant box remove packer-ubuntu-16.04-virtualbox
 ```
 
 ## References
+
 1. [Build dependencies](https://github.com/docktermj/KnowledgeBase/blob/master/build-dependencies/packer.md).
 1. [Bibliography](https://github.com/docktermj/KnowledgeBase/blob/master/bibliography/packer.md)
