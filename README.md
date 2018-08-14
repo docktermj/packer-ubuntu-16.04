@@ -3,7 +3,7 @@
 This repository is an example of how to build machine images using [Packer](https://www.packer.io/).
 
 In this example, a
-Ubuntu 16.04.2 ISO image
+Ubuntu 16.04.5 ISO image
 is used to create machine images for VMware and VirtualBox.
 
 ## Build dependencies
